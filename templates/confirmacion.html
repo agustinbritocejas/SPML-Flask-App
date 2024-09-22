@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Pedido</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo_LATAM_blanco_rojo.png') }}" alt="Logo LATAM">
+        <h1>Confirmación de Pedido</h1>
+    </header>
+    <main>
+        {% if error %}
+            <h2>¡Error en el Pedido!</h2>
+            <p>{{ mensaje }}</p>
+        {% elif duplicado %}
+            <h2>¡Pedido Confirmado!</h2>
+            <p>Ya hemos confirmado previamente un pedido de comida especial {{ codigo_comida }} para el cliente con RUT/DNI {{ rut_dni }} en el vuelo {{ numero_vuelo }}.</p>
+        {% else %}
+            <h2>¡Pedido Procesado!</h2>
+            <p>El pedido de comida {{ codigo_comida }} para el cliente con RUT/DNI {{ rut_dni }} en el vuelo {{ numero_vuelo }} ha sido procesado exitosamente.</p>
+        {% endif %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de comida especial SPML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo_LATAM_blanco_rojo.png') }}" alt="Logo LATAM">
+        <h1>Formulario de Pedido SPML</h1>
+    </header>
+    <main>
+        <form action="/procesar_pedido" method="post">
+            <label for="rut_dni">RUT/DNI:</label>
+            <input type="text" id="rut_dni" name="rut_dni" required>
+            
+            <label for="numero_vuelo">Número de Vuelo (Ej. LA2691):</label>
+            <input type="text" id="numero_vuelo" name="numero_vuelo" pattern="[A-Z]{2}[0-9]{4}" title="El número de vuelo debe tener el formato LA2691" required>
+            
+            <label for="fecha_salida">Fecha y Hora de Salida (YYYY-MM-DDTHH:MM):</label>
+            <input type="datetime-local" id="fecha_salida" name="fecha_salida" required>
+            
+            <label for="origen">Código de Aeropuerto de Origen:</label>
+            <input type="text" id="origen" name="origen" required>
+            
+            <label for="destino">Destino:</label>
+            <input type="text" id="destino" name="destino" required>
+
+            <label for="codigo_comida">Código de Comida Especial:</label>
+            <select id="codigo_comida" name="codigo_comida" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="CHML">CHML - Comida para niños</option>
+                <option value="BLML">BLML - Comida blanda</option>
+                <option value="DBML">DBML - Comida para diabéticos</option>
+                <option value="GFML">GFML - Comida sin gluten</option>
+                <option value="KSML">KSML - Comida kosher</option>
+                <option value="LCML">LCML - Comida baja en calorías</option>
+                <option value="LFML">LFML - Comida baja en grasas</option>
+                <option value="LSML">LSML - Comida baja en sal</option>
+                <option value="NLML">NLML - Comida sin lácteos</option>
+                <option value="VGML">VGML - Comida vegetariana</option>
+                <option value="VLML">VLML - Comida vegana</option>
+            </select>
+
+            <!-- Añadir un espacio entre el selector de comida y el botón -->
+            <br><br>
+
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </main>
+</body>
+</html>

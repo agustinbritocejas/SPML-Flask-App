@@ -5,11 +5,11 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
-# Rutas de los archivos CSV
+# Rutas de los archivos itinerario y pedidos
 ruta_csv_vuelos_nueva = 'itinerary_int_ag - Hoja 4.csv'
 ruta_pedidos = 'pedidos_spml.csv'
 
-# URL del Web App de Google Sheets (reemplaza con la URL de tu Web App)
+# URL del Web App de Google Sheets "solicitudes spml conex" el cual guarda los pedidos dinamicamente
 google_sheets_web_app_url = 'https://script.google.com/macros/s/AKfycby3gnYSfCwSfPoKppeRE_VX4qDtRA2NP1D_MsID4024lnFb_YaH5xx4Fyq8PJSMNvQ1/exec'
 
 def obtener_demora_y_verificar(numero_vuelo, origen, destino):
